@@ -22,24 +22,20 @@ public class PacienteEPS extends Paciente{
         NombreEPS = nombreEPS;
     }
 
-    private int coPago;
-
+    @Override
     public double calcularCostoFinal(){
-        if(costoConsulta==50000){
-            System.out.println("El valor es de:" + costoConsulta);
-            return costoConsulta + (costoConsulta*0.25);
-        }else if(costoConsulta==80000){
-            System.out.println("El valor es de:" + costoConsulta);
-            return costoConsulta + (costoConsulta*0.2);
-        }else if(costoConsulta>1000000){
-            System.out.println("El valor es de:" + costoConsulta);
-            return costoConsulta + (costoConsulta*0.05);
+        double porcentaje;
+        if(costoConsulta>=300000){
+            porcentaje = 0.25;
+        }else if(costoConsulta>=80000){
+            porcentaje = 0.2;
         }else{
-            System.out.println("El valor es de:" + coPago );
-            return coPago;
+            porcentaje = 0.3;
         }
+        double coPago = costoConsulta*porcentaje;
+        if(esConsultaCostosa()){
+            coPago = coPago - (coPago*0.05);
+        }
+        return coPago;
     }
-
-
-
 }

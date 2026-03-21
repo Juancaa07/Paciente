@@ -23,24 +23,17 @@ public class PacienteParticular extends Paciente{
         ConsultarPrecio = consultarPrecio;
     }
 
-    private double calcularCostoFinal;
-
+    @Override
     public double calcularCostoFinal(){
-        if(costoConsulta<50000){
-            System.out.println("El valor es de:" + costoConsulta);
-            return costoConsulta + (costoConsulta*0.05);
-
-        }else if(costoConsulta>200000){
-            System.out.println("El valor es de:" + costoConsulta);
-            return costoConsulta - (costoConsulta*0.10);
-        }else if(costoConsulta>400000){
-            System.out.println("El valor es de:" + costoConsulta);
-            return costoConsulta - (costoConsulta*0.15);
+        if(costoConsulta>=400000){
+            return aplicarDescuento(0.15);
+        }else if(costoConsulta>=200000){
+            return aplicarDescuento(0.10);
+        }else if(costoConsulta<=50000){
+            return aplicarRecarga(0.5);
         }else{
-            return calcularCostoFinal;
+            return costoConsulta;
         }
     }
-
-
 
 }

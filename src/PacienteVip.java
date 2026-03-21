@@ -22,20 +22,21 @@ public class PacienteVip extends Paciente{
         AniosFidelidad = aniosFidelidad;
     }
 
-
+    @Override
     public double calcularCostoFinal(){
-        if(AniosFidelidad==10){
-            System.out.println("El valor es de:" + costoConsulta);
-            return costoConsulta + (costoConsulta*0.4);
-        }else if(AniosFidelidad==5){
-            System.out.println("El valor es de:" + costoConsulta);
-            return costoConsulta + (costoConsulta*0.3);
-        }else if(costoConsulta>300000){
-            System.out.println("Valor supero el maximo");
-            return costoConsulta;
-        }else{
-            return costoConsulta + (costoConsulta*0.2);
-        }
-    }
+        double porcentaje;
 
+        if(AniosFidelidad>=10){
+            porcentaje = 0.4;
+        }else if(AniosFidelidad>=5){
+            porcentaje = 0.3;
+        }else{
+            porcentaje = 0.2;
+        }
+        double total = aplicarDescuento(porcentaje);
+        if(total> 300000){
+            total = 30000;
+        }
+        return total;
+    }
 }

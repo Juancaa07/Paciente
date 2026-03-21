@@ -35,11 +35,11 @@ public class Main {
                     System.out.println("Ingrese el documento");
                     int documento1 = teclado.nextInt();
 
-                    System.out.println("Ingrese Salario base ");
+                    System.out.println("Ingrese el costo de la consdulta ");
                     double costoConsulta1 = teclado.nextDouble();
 
 
-                    PacienteParticular ed1 = new PacienteParticular(nombre1, documento1, costoConsulta1);
+                    PacienteParticular ed1 = new PacienteParticular(nombre1, documento1, costoConsulta1, 0);
                     lstPacientes.add(ed1);
                     break;
 
@@ -53,7 +53,7 @@ public class Main {
                     System.out.println("Ingrese la documento");
                     int documento2 = teclado.nextInt();
 
-                    System.out.println("Ingrese el costo del salario ");
+                    System.out.println("Ingrese el costo de la consulta ");
                     double costoConsulta2 = teclado.nextDouble();
 
                     System.out.println("Ingrese nombre de la EPS");

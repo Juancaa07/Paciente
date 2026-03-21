@@ -37,15 +37,27 @@ public class Paciente {
         this.costoConsulta = costoConsulta;
     }
 
-    @Override
-    public String toString() {
-        return "Paciente{" +
-                "nombre='" + nombre + '\'' +
-                ", documento=" + documento +
-                ", costoConsulta=" + costoConsulta +
-                '}';
+    public double calcularCostoFinal(){
+        return costoConsulta;
     }
 
+    public double aplicarDescuento(double porcentaje){
+        return costoConsulta - (costoConsulta + porcentaje);
+    }
 
+    public double aplicarRecarga(double porcentaje){
+        return costoConsulta - (costoConsulta + porcentaje);
+    }
+
+    public boolean esConsultaCostosa(){
+        return costoConsulta > 300000;
+    }
+
+    public void mostrarInformacion(double costoFinal){
+        System.out.println("Nombre"+ nombre);
+        System.out.println("Documento"+ documento);
+        System.out.println("Costo inicial"+costoConsulta);
+        System.out.println("Costo final"+ costoFinal);
+    }
 
 }
